@@ -11,10 +11,15 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ua.osb.jpa-learning");
+        log.info("Nothing is happening before here...");
+
+        EntityManagerFactory entityManagerFactory =
+                Persistence.createEntityManagerFactory("ua.osb.jpa-learning");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+        log.info("Searching for a person with id 1");
         Person person = entityManager.find(Person.class, 1L);
+        log.info("Searching for an office with id 1");
         Office office = entityManager.find(Office.class, 1L);
 
         log.info("Person is found: {}", person);
