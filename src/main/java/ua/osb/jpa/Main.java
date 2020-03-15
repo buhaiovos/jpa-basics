@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class Main {
@@ -63,5 +64,13 @@ public class Main {
         TypedQuery<Person> personJoinTypedQuery = entityManager.createQuery(personJoinQuery);
         List<Person> personWithOffices = personJoinTypedQuery.getResultList();
         log.info("These have office: {}", personWithOffices);
+
+        log.info("Find person with id 1 using Criteria API...");
+        CriteriaQuery<Person> findByIdQuery = criteriaBuilder.createQuery(Person.class);
+        Root<Person> personRoot = findByIdQuery.from(Person.class);
+        findByIdQuery.select(personRoot).where(criteriaBuilder.equal(personRoot.get("id"), 1L));
+        TypedQuery<Person> personByIdTypedQuery = entityManager.createQuery(findByIdQuery);
+        Person idOne = personByIdTypedQuery.getSingleResult();
+        log.info("It was a long ride, but this is what we've found: {}", idOne);
     }
 }
