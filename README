@@ -1,3 +1,11 @@
 Some useful links to wrap one's head around criteria API:
 https://developer.ibm.com/articles/j-typesafejpa/
 https://docs.oracle.com/javaee/6/tutorial/doc/gjitv.html
+
+Properties to run this application:
+-Djavax.persistence.jdbc.driver=com.mysql.cj.jdbc.Driver
+-Djavax.persistence.jdbc.url="jdbc:mysql://${host}:${port}/${db-name}"
+-Dhibernate.connection.username=${username}
+-Dhibernate.connection.password=${password}
+-Dhibernate.show_sql=true
+-Dhibernate.format_sql=true

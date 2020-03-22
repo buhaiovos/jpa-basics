@@ -9,9 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <java.version>14</java.version>
         <hibernate-version>5.4.12.Final</hibernate-version>
-        <target.version>13</target.version>
-        <source.version>13</source.version>
+        <target.version>${java.version}</target.version>
+        <source.version>${java.version}</source.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 
@@ -54,7 +56,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>13</release>
+                    <release>${java.version}</release>
                     <compilerArgs>
                         --enable-preview
                     </compilerArgs>
