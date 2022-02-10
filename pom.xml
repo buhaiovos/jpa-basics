@@ -10,7 +10,7 @@
 
     <properties>
         <java.version>14</java.version>
-        <hibernate-version>5.4.12.Final</hibernate-version>
+        <hibernate-version>5.4.24.Final</hibernate-version>
         <target.version>${java.version}</target.version>
         <source.version>${java.version}</source.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
